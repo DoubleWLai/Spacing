@@ -1,0 +1,12 @@
+{% extends 'spacing/base.html' %}
+
+{% block content %}
+
+<form action="/create" method="post">
+    <label for="memory">Please type anything you want to memorize: </label>
+    <div>
+      <input id="memory" type="text" style="height:100px;width:449px;font-size:12px;">
+    </div>
+    <input type="submit" value="OK">
+</form>
+{% endblock %}
