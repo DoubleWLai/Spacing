@@ -1,0 +1,17 @@
+{% extends 'spacing/base.html' %}
+
+
+
+{% block content %}
+<ul>
+  {% for i in list %}
+  <form class="" action="{% url 'spacing:list_delete' i.id %}" method="post">
+    {% csrf_token %}
+    <li>{{i.content}}</li>
+    <button type="submit" name="button">Delete</button>
+  </form>
+  {% endfor %}
+</ul>
+
+
+{% endblock %}

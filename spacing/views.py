@@ -7,7 +7,16 @@ from django.contrib.auth import authenticate, login
 from .models import memory
 
 def index(request):
-    return render(request, 'spacing/index.html')
+    if request.user.is_authenticated:
+        Userdata = memory.objects.filter(user=request.user)
+        l = []
+        for i in Userdata:
+            m = i.content
+            l.append(m)
+        context = {"content" : l}
+        return render(request, 'spacing/index.html',context)
+    else:
+        return render(request, 'spacing/index.html')
 
 def register(request):
     if request.method == "POST":
@@ -24,4 +33,29 @@ def register(request):
     return render(request, 'spacing/register.html', {"form":form})
 
 def create(request):
-    return render(request, "spacing/create.html")
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            content = request.POST['content']
+            user = request.user
+            newMemory = memory.objects.create(user=user, content=content)
+            return render(request, 'spacing/create.html')
+        else:
+            return render(request, 'spacing/create.html')
+    else:
+        return redirect('/login')
+
+def list(request):
+    if request.user.is_authenticated:
+        Userdata = memory.objects.filter(user=request.user)
+        l = []
+        for i in Userdata:
+            l.append(i)
+        context = {"list" : l}
+        return render(request, 'spacing/list.html',context)
+    else:
+        return redirect("/login")
+
+def list_delete(request,id):
+    delete_item = memory.objects.filter(id=id)
+    delete_item.delete()
+    return redirect("/list")
