@@ -25,7 +25,7 @@ SECRET_KEY = 't+l2l7e9gf(phit^+*84ydtblb085hhr@i-pu8q_q(xsmz-cj+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['spacingeff.herokuapp.com']
 
 
 # Application definition
