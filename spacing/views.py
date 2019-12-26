@@ -5,15 +5,19 @@ from .forms import RegisterForm
 from django.contrib.auth import authenticate, login
 
 from .models import memory
+from django.utils import timezone
 
 def index(request):
     if request.user.is_authenticated:
         Userdata = memory.objects.filter(user=request.user)
         l = []
         for i in Userdata:
-            m = i.content
-            l.append(m)
-        context = {"content" : l}
+            time = i.last_modified
+            now = timezone.now()
+            difftime = now.date() - time.date()
+            if difftime.days == 1 or difftime.days == 2 or difftime.days == 4 or difftime.days == 7 or difftime.days == 15:
+                l.append(i)
+        context = {"list" : l}
         return render(request, 'spacing/index.html',context)
     else:
         return render(request, 'spacing/index.html')
@@ -58,4 +62,7 @@ def list(request):
 def list_delete(request,id):
     delete_item = memory.objects.filter(id=id)
     delete_item.delete()
+    return redirect("/list")
+
+def update(request,id):
     return redirect("/list")

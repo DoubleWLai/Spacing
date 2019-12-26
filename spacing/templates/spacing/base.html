@@ -19,6 +19,8 @@
       background:         linear-gradient(90deg, #2BC0E4 10%, #EAECC6 90%);
     }
     </style>
+    {% load static %}
+    <script type="text/javascript" src="{% static "jquery-3.4.1.min.js" %}"></script>
   </head>
   <body>
   <div class="main", id="content", name="content">
@@ -34,7 +36,10 @@
         {% if user.is_authenticated %}
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">{{user.username}}</a>
+            <a class="nav-link" href="/list">My List</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/list">{{user.username}}</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="/logout">Logout</a>
@@ -61,7 +66,8 @@
           {% endblock %}
       </div>
     </div>
-
+    {% block scripts %}
+    {% endblock %}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

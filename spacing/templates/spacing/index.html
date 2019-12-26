@@ -3,8 +3,43 @@
 {% block content %}
 <div>
 <h1>Home page</h1>
-<p>{{user}}</p>
-<p>{{content}}</p>
+{% if user.is_authenticated %}
+  <form class="show-form" method="post">
+      {% csrf_token %}
+      <div id="show-form-group">
 
+      </div>
+      <button id="nextbutton" type="button" name="button">Next</button>
+  </form>
+{% else %}
+  <p>Please Login</p>
+{% endif %}
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+  var list = [];
+  {% for i in list %}
+  var element = {};
+  var content = "{{i.content}}"
+  var id = {{i.id}}
+  element.id = id;
+  element.content = content;
+  list.push(element);
+  {% endfor %}
+
+  var i = 0;
+  $('#nextbutton').on('click', function(){
+    $(".list_dis").remove();
+    if (i < list.length) {
+      $("#show-form-group").append("<div class='list_dis'>" + list[i].content + "</div>");
+      i = i + 1;
+    } else {
+      $("#show-form-group").append("<div class='list_dis'>There is nothing need to review. Go to <a href='/create'>create</a></div>");
+    }
+
+  });
+
+</script>
 {% endblock %}
