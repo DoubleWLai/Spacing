@@ -1,17 +1,22 @@
 {% extends 'spacing/base.html' %}
 
-
-
 {% block content %}
-<ul>
+
+<div id="container">
+
+<h1 id="listhead">Manage your list<a href="/create" class="fa fa-plus"></a></h1>
+<ul id="listul">
   {% for i in list %}
   <form class="" action="{% url 'spacing:list_delete' i.id %}" method="post">
     {% csrf_token %}
-    <li>{{i.content}}</li>
-    <button type="submit" name="button">Delete</button>
+    <li class="list-group-item" id="ulli">
+      {{i.content}}
+      <button type="submit" class="btn btn-danger btn-sm float-sm-right" name="button">Delete</button>
+    </li>
   </form>
   {% endfor %}
 </ul>
+</div>
 
 
 {% endblock %}

@@ -2,17 +2,40 @@
 
 {% block content %}
 <div>
-<h1>Home page</h1>
 {% if user.is_authenticated %}
-  <form class="show-form" method="post">
-      {% csrf_token %}
-      <div id="show-form-group">
+<div class="modal-dialog" role="document" style="margin-top: 150px;">
+  <div class="modal-content">
 
-      </div>
-      <button id="nextbutton" type="button" name="button">Next</button>
-  </form>
+    <div class="modal-body">
+      <p id="show-form-group" style="height: 150px; width:300px;"></p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" id="nextbutton" class="btn btn-primary">Start/Next</button>
+    </div>
+  </div>
+</div>
+
 {% else %}
-  <p>Please Login</p>
+<section class="container-fluid px-0" style="margin-top: 80px;">
+  <div class="row align-items-center content">
+    <div class="col-md-6 order-2 order-md-1">
+      {% load static %}
+      <img class="img-fluid" src="{% static "forgettingCurve.png" %}" alt="" style="margin-left: 40px;">
+    </div>
+    <div class="col-md-6 text-center order-1 order-md-2">
+      <div class="row justify-content-center">
+        <div class="col-10 col-lg-8 blurb mb-5 mb-md-0">
+          <h2>SPACING EFFECT</h2>
+          <img src="imgs/lolli_icon.png" alt="" class="d-none d-lg-inline">
+          <p class="lead">More information is encoded into long-term memory
+            by spaced study sessions, that is known as spaced presentation.
+             Now, create your information that will repeat according to forgetting curve.</p>
+          <p><a class="btn btn-success btn-lg" href="/create" role="button">Create</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
 {% endif %}
 </div>
 {% endblock %}
@@ -43,3 +66,16 @@
 
 </script>
 {% endblock %}
+
+
+  <div class="modal-dialog" role="document" style="margin-top: 200px;">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <p id="show-form-group"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="nextbutton" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,37 @@
+#container {
+	width: 360px;
+	margin: 100px auto;
+	background: #f7f7f7;
+	box-shadow: 0 0 3px rgba(0,0,0, 0.1);
+}
+
+#listul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.fa-plus {
+	float: right;
+}
+
+#listhead {
+	background: #2980b9;
+	color: white;
+	margin: 0;
+	padding: 10px 20px;
+	text-transform: uppercase;
+	font-size: 24px;
+	font-weight: normal;
+}
+
+#ulli {
+	background: #fff;
+
+
+	color: #666;
+}
+
+#centeradiv {
+  margin-top: 100px;
+}
