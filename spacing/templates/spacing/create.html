@@ -5,13 +5,13 @@
 <div id="centeradiv">
 
 
-<form action="/create/" method="post">
+<form action="/spacing/create/" method="post">
   {% csrf_token %}
     <label for="memory">Please type anything you want to memorize: </label>
     <div>
       <input id="memory" type="text" style="height:100px;width:449px;font-size:12px;" name="content">
     </div>
-    <button type="button" class="btn btn-success">Submit</button>
+    <input class="btn btn-success" type="submit" value="Submit">
 </form>
 
 </div>

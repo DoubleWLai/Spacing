@@ -4,7 +4,7 @@
 
 <div id="container">
 
-<h1 id="listhead">Manage your list<a href="/create" class="fa fa-plus"></a></h1>
+<h1 id="listhead">Manage your list<a href="/spacing/create" class="fa fa-plus"></a></h1>
 <ul id="listul">
   {% for i in list %}
   <form class="" action="{% url 'spacing:list_delete' i.id %}" method="post">

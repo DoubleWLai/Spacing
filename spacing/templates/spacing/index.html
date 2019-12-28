@@ -30,7 +30,7 @@
           <p class="lead">More information is encoded into long-term memory
             by spaced study sessions, that is known as spaced presentation.
              Now, create your information that will repeat according to forgetting curve.</p>
-          <p><a class="btn btn-success btn-lg" href="/create" role="button">Create</a></p>
+          <p><a class="btn btn-success btn-lg" href="/spacing/create" role="button">Create</a></p>
         </div>
       </div>
     </div>
@@ -59,7 +59,7 @@
       $("#show-form-group").append("<div class='list_dis'>" + list[i].content + "</div>");
       i = i + 1;
     } else {
-      $("#show-form-group").append("<div class='list_dis'>There is nothing need to review. Go to <a href='/create'>create</a></div>");
+      $("#show-form-group").append("<div class='list_dis'>There is nothing need to review. Go to <a href='/spacing/create'>create</a></div>");
     }
 
   });

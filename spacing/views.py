@@ -31,7 +31,7 @@ def register(request):
                                     password=form.cleaned_data['password1'],
                                     )
             login(request, new_user)
-        return redirect("/")
+        return redirect("/spacing")
     else:
         form = RegisterForm()
     return render(request, 'spacing/register.html', {"form":form})
@@ -57,12 +57,12 @@ def list(request):
         context = {"list" : l}
         return render(request, 'spacing/list.html',context)
     else:
-        return redirect("/login")
+        return redirect("/spacing/login")
 
 def list_delete(request,id):
     delete_item = memory.objects.filter(id=id)
     delete_item.delete()
-    return redirect("/list")
+    return redirect("/spacing/list")
 
 def update(request,id):
-    return redirect("/list")
+    return redirect("/spacing/list")
