@@ -63,6 +63,3 @@ def list_delete(request,id):
     delete_item = memory.objects.filter(id=id)
     delete_item.delete()
     return redirect("/spacing/list")
-
-def update(request,id):
-    return redirect("/spacing/list")

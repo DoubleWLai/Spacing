@@ -13,3 +13,16 @@ The [forgetting curve](https://en.wikipedia.org/wiki/Forgetting_curve) hypothesi
 The [spacing effect](https://en.wikipedia.org/wiki/Spacing_effect) demonstrates that learning is more effective when study sessions are spaced out. This effect shows that more information is encoded into long-term memory by spaced study sessions, that is known as spaced presentation, than by "cramming", or massed studying or massed presentation, such as in studying for an exam only the night before.
 
 According to the forgetting curve, this web application will show the information user input in 1, 2, 4, 7, 15 days.
+
+### RESTFUL Routes
+
+Application of REpresentational State Transfer (REST)
+
+| Name    | Path                    | HTTP Verb | Purpose                                                 |
+| ------- | ----------------------- | --------- | ------------------------------------------------------- |
+| Index   | `/spacing`              | GET       | List all information                                    | 
+| Create  | `/spacing/create`       | POST      | Create new information to memorize                      |
+| Register| `/spacing/register`     | POST      | Create a new account                                    |
+| Login   | `/login`                | GET       | Make user to login                                      |
+| List    | `/spacing/list`         | GET       | Show info about one specific user                       |
+| Delete  | `/spacing/<int:id>`     | POST      | Delete the info about one specific user                 |
