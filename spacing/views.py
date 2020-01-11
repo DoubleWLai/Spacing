@@ -31,7 +31,9 @@ def register(request):
                                     password=form.cleaned_data['password1'],
                                     )
             login(request, new_user)
-        return redirect("/")
+            return redirect("/")
+        else:
+            return render(request, 'spacing/register.html', {"form":form})
     else:
         form = RegisterForm()
     return render(request, 'spacing/register.html', {"form":form})
